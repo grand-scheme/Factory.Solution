@@ -26,6 +26,7 @@ namespace Factory.Controllers
 			return View();
 		}
 
+		[HttpPost]
 		public ActionResult Create(Machine machine)
 		{
 			_db.Machines.Add(machine);
@@ -36,8 +37,8 @@ namespace Factory.Controllers
 		public ActionResult Read(int id)
 		{
 			Machine thisMachine = _db.Machines
-			// .Include(machine => machine.Engineers)
-			// .ThenInclude(join => join.Engineer)
+			.Include(machine => machine.Engineers)
+			.ThenInclude(join => join.Engineer)
 			.FirstOrDefault(machine => machine.MachineId == id);
 			return View(thisMachine);
 		}
@@ -58,11 +59,43 @@ namespace Factory.Controllers
 		public ActionResult Delete(int id)
 		{
 			Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
+			return View(thisMachine);
+		}
+
+		[HttpPost, ActionName("Delete")]
+		public ActionResult Delete2(int id)
+		{
+			Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
 			_db.Machines.Remove(thisMachine);
 			_db.SaveChanges();
 			return RedirectToAction("Index");
 		}
 
+		public ActionResult AddEngineer(int id)
+		{
+			Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
+			ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "EngineerName");
+			return View(thisMachine);
+		}
 
+		[HttpPost]
+		public ActionResult AddEngineer(Machine machine, int EngineerId)
+		{
+			if(EngineerId != 0)
+			{
+				_db.EngineerMachine.Add(new EngineerMachine() {EngineerId = EngineerId, MachineId = machine.MachineId });
+			}
+			_db.SaveChanges();
+			return RedirectToAction("Read", new { id = machine.MachineId});
+		}
+
+		[HttpPost]
+		public ActionResult DeleteEngineer(int joinId)
+		{
+			EngineerMachine joinEntry = _db.EngineerMachine.FirstOrDefault(entry => entry.EngineerMachineId == joinId);
+			_db.EngineerMachine.Remove(joinEntry);
+			_db.SaveChanges();
+			return RedirectToAction("Read", new { id = joinEntry.MachineId });
+		}
 	}
 }
