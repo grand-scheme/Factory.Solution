@@ -36,8 +36,8 @@ namespace Factory.Controllers
 		public ActionResult Read(int id)
 		{
 			Machine thisMachine = _db.Machines
-			.Include(machine => machine.Engineers)
-			.ThenInclude(join => join.Engineer)
+			// .Include(machine => machine.Engineers)
+			// .ThenInclude(join => join.Engineer)
 			.FirstOrDefault(machine => machine.MachineId == id);
 			return View(thisMachine);
 		}
