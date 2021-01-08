@@ -21,11 +21,13 @@ namespace Factory.Controllers
 			return View(engineerList);
 		}
 
+		[HttpGet]
 		public ActionResult Create()
 		{
 			return View();
 		}
 
+		[HttpPost]
 		public ActionResult Create(Engineer engineer)
 		{
 			_db.Engineers.Add(engineer);
