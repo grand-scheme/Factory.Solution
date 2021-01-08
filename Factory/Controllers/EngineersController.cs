@@ -1,0 +1,1 @@
+using Microsoft.AspNetCore.Mvc;using Factory.Models;using System.Collections.Generic;namespace Factory.Controllers{	public class EngineersController : Controller	{		[HttpGet("/Engineers")]		public ActionResult Index()		{			return View();		}	}}
