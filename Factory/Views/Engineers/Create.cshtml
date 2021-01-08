@@ -9,12 +9,19 @@
 
 @using (Html.BeginForm())
 {
+  <p>
   @Html.Label("name")
   @Html.TextBoxFor(model => model.EngineerName)
-  
+  </p>
+  <p>
   @Html.Label("hire date")
   @Html.TextBoxFor(model => model.EngineerHireDate, new {@type = "date"})
-  
+  </p>
+  <p>  
   @Html.Label("task assigned")
   @Html.TextBoxFor(model => model.EngineerWorkStatus, new {@type = "checkbox"})
+  </p>
+  <p>
+  <input type="submit" value="Save" class="btn" />
+  </p>
 }
