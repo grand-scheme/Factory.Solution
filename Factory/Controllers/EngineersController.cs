@@ -14,6 +14,7 @@ namespace Factory.Controllers
 		{
 			_db = db;
 		}
+
 		public ActionResult Index()
 		{
 			List<Engineer> engineerList = _db.Engineers.ToList();
@@ -25,25 +26,41 @@ namespace Factory.Controllers
 			return View();
 		}
 
-		[HttpPost]
 		public ActionResult Create(Engineer engineer)
 		{
+			_db.Engineers.Add(engineer);
+			_db.SaveChanges();
 			return RedirectToAction("Index");
 		}
 
 		public ActionResult Read(int id)
 		{
-			return View();
+			Engineer thisEngineer = _db.Engineers
+			.Include(engineer => engineer.Machines)
+			.ThenInclude(join => join.Machine)
+			.FirstOrDefault(engineer => engineer.EngineerId ==id);
+			return View(thisEngineer);
 		}
 
 		public ActionResult Edit(int id)
 		{
-			return View();
+			Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+			return View(thisEngineer);
+		}
+
+		public ActionResult Edit(Engineer engineer)
+		{
+			_db.Entry(engineer).State = EntityState.Modified;
+			_db.SaveChanges();
+			return RedirectToAction("Index");
 		}
 
 		public ActionResult Delete(int id)
 		{
-			return View();
+			Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+			_db.Engineers.Remove(thisEngineer);
+			_db.SaveChanges();
+			return RedirectToAction("Index");
 		}
 		
 		
@@ -64,11 +81,5 @@ namespace Factory.Controllers
 		
 		
 		
-		
-		[HttpGet("/Engineers")]
-		public ActionResult Index()
-		{
-			return View();
-		}
 	}
 }
