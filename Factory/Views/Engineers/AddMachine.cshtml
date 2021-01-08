@@ -1,0 +1,12 @@
+@model Factory.Models.Engineer
+
+@Html.DisplayFor(model => model.EngineerName)
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.EngineerId )
+  @Html.Label("+ Machine")
+  @Html.DropDownList("MachineId")
+
+  <input type="submit" value="Save" class="btn" />
+}

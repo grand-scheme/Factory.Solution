@@ -1,0 +1,34 @@
+@using Factory.Models;
+@model Factory.Models.Engineer;
+
+@Html.DisplayFor(model => model.EngineerName)
+@Html.DisplayFor(model => model.EngineerHireDate)
+@Html.DisplayFor(model => model.EngineerNextCertificationDate)
+@Html.DisplayFor(model => model.EngineerWorkStatus)
+
+@if (@Model.Machines.Count == 0)
+{
+  <p>
+    nada
+  </p>
+}
+
+else
+{
+  @foreach (EngineerMachine machine in Model.Machines)
+  {
+    @machine.Machine.MachineName
+    @machine.Machine.MachineInstallDate
+    @machine.Machine.MachineNextInspectionDate
+    @machine.Machine.MachineOnlineStatus
+    @using (@Html.BeginForm("DeleteMachine", "Engineers"))
+    {
+      @Html.Hidden("joinId", @machine.EngineerMachineId)
+      <input type="submit" value="Delete" />
+    }
+  }
+}
+
+@Html.ActionLink("+ Machine", "AddMachine", new { id = Model.EngineerId })
+@Html.ActionLink("~ Engineer", "Edit", new { id = Model.EngineerId })
+@Html.ActionLink("- Engineer", "Delete", new { id = Model.EngineerId })
