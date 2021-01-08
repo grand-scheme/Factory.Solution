@@ -1,0 +1,12 @@
+@* Machines.Index *@
+@Html.ActionLink("M", "Index", "Machines")
+<hr>
+@Html.ActionLink("E", "Index", "Engineers")
+@Html.ActionLink("H", "Index", "Home")
+<hr>
+
+@using Factory.Models;
+@model List<Factory.Models.Machine>;
+  <p> hiya </p>
+  @if (@Model.Count == 0)
+  {}
