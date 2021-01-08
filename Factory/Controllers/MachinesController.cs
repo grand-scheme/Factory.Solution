@@ -37,7 +37,7 @@ namespace Factory.Controllers
 		{
 			Machine thisMachine = _db.Machines
 			.Include(machine => machine.Engineers)
-			.ThenInclude(join = join.Engineer)
+			.ThenInclude(join => join.Engineer)
 			.FirstOrDefault(machine => machine.MachineId == id);
 			return View(thisMachine);
 		}
