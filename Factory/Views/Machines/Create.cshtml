@@ -1,0 +1,27 @@
+@* Machines.Create *@
+@Html.ActionLink("E", "Index", "Machines")
+<hr>
+@Html.ActionLink("H", "Index", "Home")
+<hr>
+
+@using Factory.Models;
+@model Factory.Models.Machine
+
+@using (Html.BeginForm())
+{
+  <p>
+  @Html.Label("name")
+  @Html.TextBoxFor(model => model.MachineName)
+  </p>
+  <p>
+  @Html.Label("install date")
+  @Html.TextBoxFor(model => model.MachineInstallDate, new {@type = "date"})
+  </p>
+  <p>  
+  @* @Html.Label("status")
+  @Html.TextBoxFor(model => model.MachineOnlineStatus, new {@type = "radio"}) *@
+  </p>
+  <p>
+  <input type="submit" value="Save" class="btn" />
+  </p>
+}

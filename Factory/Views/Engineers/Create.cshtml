@@ -19,7 +19,14 @@
   </p>
   <p>  
   @Html.Label("task assigned")
-  @Html.TextBoxFor(model => model.EngineerWorkStatus, new {@type = "checkbox"})
+  @* @foreach (var status in Model.EngineerWorkStatuses)
+  {
+    <input type="radio" asp-for="EngineerWorkStatus" value="@status" id="EngineerWorkStatus@(status)"/> @status<br />
+    @* @Html.RadioButtonFor(model => model.EngineerWorkStatus, status) @status <br /> *@
+  } *@
+  
+  
+  
   </p>
   <p>
   <input type="submit" value="Save" class="btn" />

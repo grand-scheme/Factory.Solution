@@ -13,7 +13,9 @@ namespace Factory.Models
 		}
 		public int EngineerId {get;set;}
 		public string EngineerName {get;set;}
-		public bool EngineerWorkStatus {get;set;}
+		
+		// public string EngineerWorkStatus {get;set;}
+		// public string[] EngineerWorkStatuses = new[] { "Available", "On Assignment", "Unavailable" };
 
 		[DisplayName ("name")]
 		[DataType(DataType.Date)]

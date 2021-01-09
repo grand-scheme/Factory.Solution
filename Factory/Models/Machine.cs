@@ -13,7 +13,8 @@ namespace Factory.Models
 		}
 		public int MachineId {get;set;}
 		public string MachineName {get;set;}
-		public bool MachineOnlineStatus {get;set;}
+		// public string MachineOnlineStatus {get;set;}
+		// public string[] MachineOnlineStatuses = new[] {"Online", "Undergoing Repair", "Offline"};
 
 		// [DisplayName ("")]
 		[DataType(DataType.Date)]
