@@ -7,6 +7,16 @@
 
 @using Factory.Models;
 @model List<Factory.Models.Machine>;
-  <p> hiya </p>
+  <p> hello </p>
   @if (@Model.Count == 0)
   {}
+
+  @foreach (Machine machine in Model)
+  {
+    <p>
+    @Html.ActionLink($"{machine.MachineName}", "Read", new { id = machine.MachineId})
+    </p>
+  }
+<p>
+  @Html.ActionLink("to Create", "Create")
+</p>

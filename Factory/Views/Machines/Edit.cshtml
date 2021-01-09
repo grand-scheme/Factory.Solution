@@ -1,0 +1,21 @@
+@model Factory.Models.Machine
+@Html.DisplayFor(model => model.MachineName)
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.MachineId)
+
+  @Html.LabelFor(model => model.MachineName)
+  @Html.EditorFor(model => model.MachineName)
+
+  @Html.LabelFor(model => model.MachineInstallDate)
+  @Html.EditorFor(model => model.MachineInstallDate)
+
+  @Html.LabelFor(model => model.MachineNextInspectionDate)
+  @Html.EditorFor(model => model.MachineNextInspectionDate)
+
+  @* @Html.LabelFor(model => model.MachineOnlineStatus)
+  @Html.EditorFor(model => model.MachineOnlineStatus) *@
+
+  <input type="submit" value="Save" />
+}
