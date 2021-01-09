@@ -4,7 +4,7 @@
 @Html.DisplayFor(model => model.EngineerName)
 @Html.DisplayFor(model => model.EngineerHireDate)
 @Html.DisplayFor(model => model.EngineerNextCertificationDate)
-@Html.DisplayFor(model => model.EngineerWorkStatus)
+@* @Html.DisplayFor(model => model.EngineerWorkStatus) *@
 
 @if (@Model.Machines.Count == 0)
 {
@@ -20,7 +20,7 @@ else
     @machine.Machine.MachineName
     @machine.Machine.MachineInstallDate
     @machine.Machine.MachineNextInspectionDate
-    @machine.Machine.MachineOnlineStatus
+    @* @machine.Machine.MachineOnlineStatus *@
     @using (@Html.BeginForm("DeleteMachine", "Engineers"))
     {
       @Html.Hidden("joinId", @machine.EngineerMachineId)
