@@ -9,12 +9,7 @@
     <link rel="stylesheet" href="~/css/styles.css">
   </head>
   <body>
-    @Html.ActionLink("M", "Index", "Machines")
-    <hr>
-    @Html.ActionLink("E", "Index", "Engineers")
-    <hr>
-    @Html.ActionLink("H", "Index", "Home")
-    <hr>
+    @await Html.PartialAsync("_NavHeader")
     @RenderBody()
   </body>
 </html>
