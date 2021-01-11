@@ -1,3 +1,7 @@
+@{
+  Layout = "_Layout";
+}
+
 @* Machines.Create *@
 @Html.ActionLink("E", "Index", "Machines")
 <hr>
@@ -9,9 +13,9 @@
 
 @using (Html.BeginForm())
 {
-  <p>
+  
   @Html.Label("name")
   @Html.TextBoxFor(model => model.MachineName)
   <input type="submit" value="Save" class="btn" />
-  </p>
+  
 }
