@@ -12,6 +12,7 @@ namespace Factory.Models
 			this.Engineers = new HashSet<EngineerMachine>();
 		}
 		public int MachineId {get;set;}
+		
 		public string MachineName {get;set;}
 
 		// [DataType(DataType.Date)]

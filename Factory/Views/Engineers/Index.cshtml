@@ -4,17 +4,16 @@
 }
 @using Factory.Models;
 @model List<Factory.Models.Engineer>;
-hello 
 @if (@Model.Count == 0)
 {}
-
 else
 {
 <table>
   <tr>
-    <th>1</th>
-    <th>2</th>
-    <th>3</th>
+    <th>ID#</th>
+    <th>Name</th>
+    <th>Edit</th>
+    <th>Delete</th>
   </tr>
     @foreach (Engineer engineer in Model)
     {
@@ -37,4 +36,3 @@ else
 }
 
 @Html.ActionLink("to Create", "Create")
-
