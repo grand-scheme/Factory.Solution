@@ -5,7 +5,6 @@
 
 
 
-
 @using Factory.Models;
 @model List<Factory.Models.Machine>;
 hello 
@@ -13,12 +12,13 @@ hello
 {}
 
 else
-{
+  {
   <table>
     <tr>
-      <th>Header 1</th>
-      <th>Header 2</th>
-      <th>Header 3</th>
+      <th>ID #</th>
+      <th>Name</th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
     @foreach (Machine machine in Model)
     {
@@ -38,6 +38,6 @@ else
       </tr>
     }
   </table>
-}
+  }
 @Html.ActionLink("to Create", "Create")
 
