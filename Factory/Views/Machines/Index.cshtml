@@ -6,10 +6,6 @@
 
 
 
-
-
-
-
 @using Factory.Models;
 @model List<Factory.Models.Machine>;
 hello 
@@ -34,6 +30,10 @@ else
           @Html.ActionLink($"{machine.MachineName}", "Read", new { id = machine.MachineId})
         </td>
         <td>
+          @Html.ActionLink($"Edit Details", "Edit", new { id = machine.MachineId})
+        </td>
+        <td>
+          @Html.ActionLink($"Remove Machine", "Delete", new { id = machine.MachineId})
         </td>
       </tr>
     }

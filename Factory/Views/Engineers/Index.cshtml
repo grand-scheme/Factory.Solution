@@ -2,21 +2,13 @@
 @{
   Layout = "_Layout";
 }
-
-
-
-
-
-
-
-
 @using Factory.Models;
 @model List<Factory.Models.Engineer>;
 hello 
 @if (@Model.Count == 0)
 {}
 
-@if (@Model.Count > 0)
+else
 {
 <table>
   <tr>
@@ -34,6 +26,10 @@ hello
           @Html.ActionLink($"{engineer.EngineerName}", "Read", new { id = engineer.EngineerId})
         </td>
         <td>
+          @Html.ActionLink($"Edit Details", "Edit", new { id = engineer.EngineerId})
+        </td>
+        <td>
+          @Html.ActionLink($"Remove Engineer", "Delete", new { id = engineer.EngineerId})
         </td>
       </tr>
     }
