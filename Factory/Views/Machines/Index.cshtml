@@ -1,26 +1,43 @@
+@* Machines.Index *@
 @{
   Layout = "_Layout";
 }
 
-@* Machines.Index *@
-@Html.ActionLink("M", "Index", "Machines")
-<hr>
-@Html.ActionLink("E", "Index", "Engineers")
-@Html.ActionLink("H", "Index", "Home")
-<hr>
+
+
+
+
+
+
 
 @using Factory.Models;
 @model List<Factory.Models.Machine>;
-   hello 
-  @if (@Model.Count == 0)
-  {}
+hello 
+@if (@Model.Count == 0)
+{}
 
-  @foreach (Machine machine in Model)
-  {
-    
-    @Html.ActionLink($"{machine.MachineName}", "Read", new { id = machine.MachineId})
-    
-  }
-
-  @Html.ActionLink("to Create", "Create")
+else
+{
+  <table>
+    <tr>
+      <th>Header 1</th>
+      <th>Header 2</th>
+      <th>Header 3</th>
+    </tr>
+    @foreach (Machine machine in Model)
+    {
+      <tr>
+        <td>
+          @machine.MachineId
+        </td>
+        <td>
+          @Html.ActionLink($"{machine.MachineName}", "Read", new { id = machine.MachineId})
+        </td>
+        <td>
+        </td>
+      </tr>
+    }
+  </table>
+}
+@Html.ActionLink("to Create", "Create")
 
