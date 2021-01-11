@@ -11,6 +11,21 @@
 {
   @Html.Label("name")
   @Html.TextBoxFor(model => model.EngineerName)
+<<<<<<< HEAD
+=======
+  </p>
+  <p>
+  @Html.Label("hire date")
+  @Html.TextBoxFor(model => model.EngineerHireDate, new {@type = "date"})
+  </p>
+  <p>  
+  @Html.Label("task assigned")
+  @* @foreach (var status in Model.EngineerWorkStatuses)
+  {
+    <input type="radio" asp-for="EngineerWorkStatus" value="@status" id="EngineerWorkStatus@(status)"/> @status<br />
+    @* @Html.RadioButtonFor(model => model.EngineerWorkStatus, status) @status <br />
+  } *@
+>>>>>>> checkout
   
   <input type="submit" value="Save" class="btn" />
 }
