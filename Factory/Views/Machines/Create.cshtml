@@ -14,8 +14,11 @@
 @using (Html.BeginForm())
 {
   
-  @Html.Label("name")
+  @Html.Label("NAME:")
   @Html.TextBoxFor(model => model.MachineName)
-  <input type="submit" value="Save" class="btn" />
-  
+  @Html.Label("INSTALL DATE:")
+  @Html.TextBoxFor(model => model.MachineInstallDate, new {@type = "date"})
+  @Html.Label("NEXT INSPECTION DATE:")
+  @Html.TextBoxFor(model => model.MachineNextInspectionDate, new {@type = "date"})
+  <input type="submit" value="Save" class="btn" /> 
 }
