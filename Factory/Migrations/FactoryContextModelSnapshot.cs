@@ -23,11 +23,6 @@ namespace Factory.Migrations
 
                     b.Property<string>("EngineerName");
 
-<<<<<<< HEAD
-=======
-                    b.Property<DateTime>("EngineerNextCertificationDate");
-
->>>>>>> checkout
                     b.HasKey("EngineerId");
 
                     b.ToTable("Engineers");
@@ -58,11 +53,6 @@ namespace Factory.Migrations
 
                     b.Property<string>("MachineName");
 
-<<<<<<< HEAD
-=======
-                    b.Property<DateTime>("MachineNextInspectionDate");
-
->>>>>>> checkout
                     b.HasKey("MachineId");
 
                     b.ToTable("Machines");
