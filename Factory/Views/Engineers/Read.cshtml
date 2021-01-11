@@ -1,31 +1,40 @@
+@* Engineers.Read *@
 @{
   Layout = "_Layout";
 }
-
 @using Factory.Models;
 @model Factory.Models.Engineer;
 
-@Html.DisplayFor(model => model.EngineerName)
+<h1>@Html.DisplayFor(model => model.EngineerName)</h1>
 
 @if (@Model.Machines.Count == 0)
 {
-  <p>
-    nada
-  </p>
 }
-
 else
 {
+  <table>
+    <tr>
+      <th>Header 1</th>
+      <th>Header 2</th>
+      <th>Header 3</th>
+    </tr>
   @foreach (EngineerMachine machine in Model.Machines)
   {
-    @machine.Machine.MachineName
-
-    @using (@Html.BeginForm("DeleteMachine", "Engineers"))
-    {
-      @Html.Hidden("joinId", @machine.EngineerMachineId)
-      <input type="submit" value="Delete" />
-    }
+    <tr>
+        <td>
+          @machine.Machine.MachineName
+        </td>
+        <td>
+        @using (@Html.BeginForm("DeleteMachine", "Engineers"))
+        {
+          @Html.Hidden("joinId", @machine.EngineerMachineId)
+          <input type="submit" value="Delete" />
+        }
+        </td>
+        <td></td>
+        </tr>
   }
+  </table>
 }
 
 @Html.ActionLink("+ Machine", "AddMachine", new { id = Model.EngineerId })
