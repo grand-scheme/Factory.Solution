@@ -7,6 +7,8 @@
 @model Factory.Models.Machine;
 
 <h1>@Html.DisplayFor(model => model.MachineName)</h1>
+<h2>@Html.DisplayFor(model => model.MachineInstallDate, new {@type = "date"})</h2>
+<h2>@Html.DisplayFor(model => model.MachineNextInspectionDate, new {@type = "date"})</h2>
 
 @if (@Model.Engineers.Count == 0)
 {
