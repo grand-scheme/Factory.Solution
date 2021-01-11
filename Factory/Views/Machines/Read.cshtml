@@ -2,9 +2,6 @@
 @model Factory.Models.Machine;
 
 @Html.DisplayFor(model => model.MachineName)
-@Html.DisplayFor(model => model.MachineInstallDate)
-@Html.DisplayFor(model => model.MachineNextInspectionDate)
-@* @Html.DisplayFor(model => model.MachineOnlineStatus) *@
 
 @if (@Model.Engineers.Count == 0)
 {
@@ -18,9 +15,6 @@ else
   @foreach (EngineerMachine engineer in Model.Engineers)
   {
     @engineer.Engineer.EngineerName
-    @engineer.Engineer.EngineerHireDate
-    @engineer.Engineer.EngineerNextCertificationDate
-    @* @engineer.Engineer.EngineerWorkStatus *@
     @using (@Html.BeginForm("DeleteEngineer", "Machines"))
     {
       @Html.Hidden("joinId", @engineer.EngineerMachineId)
