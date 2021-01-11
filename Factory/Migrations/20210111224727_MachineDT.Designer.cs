@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Factory.Migrations
 {
     [DbContext(typeof(FactoryContext))]
-    [Migration("20210111191116_Reversion")]
-    partial class Reversion
+    [Migration("20210111224727_MachineDT")]
+    partial class MachineDT
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,11 +24,7 @@ namespace Factory.Migrations
                     b.Property<int>("EngineerId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("EngineerHireDate");
-
                     b.Property<string>("EngineerName");
-
-                    b.Property<DateTime>("EngineerNextCertificationDate");
 
                     b.HasKey("EngineerId");
 
