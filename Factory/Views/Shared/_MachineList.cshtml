@@ -4,22 +4,13 @@
 {<div>hello</div>}
 else
 {
-
-<table>
-  <tr>
-    <th>ID#</th>
-    <th>Name</th>
-  </tr>
+  @Html.Label("Machines:")
+  <ul>
     @foreach (Machine machine in (ViewBag.Machines))
     {
-      <tr>
-        <td>
-          @machine.MachineId
-        </td>
-        <td>
-          @Html.ActionLink($"{machine.MachineName}", "Read", "Machines", new { id = machine.MachineId})
-        </td>
-      </tr>
+      <li>
+        @Html.ActionLink($"{machine.MachineName}", "Read", "Machines", new { id = machine.MachineId})
+      </li>
     }
-  </table>
+  </ul>
 }

@@ -4,21 +4,13 @@
 {<div>hello</div>}
 else
 {
-<table>
-  <tr>
-    <th>ID#</th>
-    <th>Name</th>
-  </tr>
+  @Html.Label("Engineers:")
+  <ul>
     @foreach (Engineer engineer in (ViewBag.Engineers))
     {
-      <tr>
-        <td>
-          @engineer.EngineerId
-        </td>
-        <td>
-          @Html.ActionLink($"{engineer.EngineerName}", "Read", "Engineers", new { id = engineer.EngineerId})
-        </td>
-      </tr>
+      <li>
+        @Html.ActionLink($"{engineer.EngineerName}", "Read", "Engineers", new { id = engineer.EngineerId})
+      </li>
     }
-  </table>
+  </ul>
 }
