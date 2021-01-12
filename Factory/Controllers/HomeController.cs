@@ -18,6 +18,8 @@ namespace Factory.Controllers
 		{
       List<Machine> machineList = _db.Machines.ToList();
       ViewBag.Machines = machineList;
+      List<Engineer> engineerList = _db.Engineers.ToList();
+      ViewBag.Engineers = engineerList;
 			return View();
 		}
 	}

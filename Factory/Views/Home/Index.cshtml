@@ -4,3 +4,5 @@
   Layout = "_Layout";
 }
 @await Html.PartialAsync("_MachineList", new List<Factory.Models.Machine>())
+  <hr>
+@await Html.PartialAsync("_EngineerList", new List<Factory.Models.Engineer>())
