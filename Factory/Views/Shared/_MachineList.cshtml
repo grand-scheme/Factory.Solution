@@ -1,7 +1,6 @@
-@* @using Pass_List_ViewBag_MVC.Models; *@
 @using Factory.Models;
 @model List<Factory.Models.Machine>;
-@if (@ViewBag.Machines.Count != 0)
+@if (@ViewBag.Machines.Count == 0)
 {<div>hello</div>}
 else
 {
@@ -18,7 +17,7 @@ else
           @machine.MachineId
         </td>
         <td>
-          @Html.ActionLink($"{machine.MachineName}", "Read", new { id = machine.MachineId})
+          @Html.ActionLink($"{machine.MachineName}", "Read", "Machines", new { id = machine.MachineId})
         </td>
       </tr>
     }
