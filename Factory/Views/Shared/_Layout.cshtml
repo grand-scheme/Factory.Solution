@@ -10,6 +10,8 @@
   </head>
   <body>
     @await Html.PartialAsync("_NavHeader")
-    @RenderBody()
+    <div class="containment">
+      @RenderBody()
+    </div>
   </body>
 </html>
