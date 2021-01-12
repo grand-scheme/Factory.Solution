@@ -1,10 +1,22 @@
 body {
   background: #ffffcc;
+  margin: 0rem 1rem;
 }
 
+.navigation {
+  margin-bottom:2rem;
+}
 .navigation a:first-of-type {
-  margin:1em;
+  margin:1rem;
 }
 .navigation a {
-  margin:7em;
+  margin:3rem;
+}
+
+.table tr:nth-child(even) {
+  background-color:lightgrey;
+}
+
+ul {
+  list-style-type: none;
 }
