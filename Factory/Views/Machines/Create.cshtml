@@ -16,6 +16,8 @@
   
   @Html.Label("NAME:")
   @Html.TextBoxFor(model => model.MachineName)
+  @Html.Label("DESCRIPTION:")
+  @Html.TextBoxFor(model => model.MachineDescription)
   @Html.Label("INSTALL DATE:")
   @Html.TextBoxFor(model => model.MachineInstallDate, new {@type = "date"})
   @Html.Label("NEXT INSPECTION DATE:")
