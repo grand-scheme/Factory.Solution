@@ -1,0 +1,24 @@
+@using Factory.Models;
+@model List<Factory.Models.Engineer>;
+@if (@ViewBag.Engineers.Count == 0)
+{<div>hello</div>}
+else
+{
+<table>
+  <tr>
+    <th>ID#</th>
+    <th>Name</th>
+  </tr>
+    @foreach (Engineer engineer in (ViewBag.Engineers))
+    {
+      <tr>
+        <td>
+          @engineer.EngineerId
+        </td>
+        <td>
+          @Html.ActionLink($"{engineer.EngineerName}", "Read", "Engineers", new { id = engineer.EngineerId})
+        </td>
+      </tr>
+    }
+  </table>
+}
