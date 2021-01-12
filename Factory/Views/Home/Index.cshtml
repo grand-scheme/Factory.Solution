@@ -1,6 +1,6 @@
+@using Factory.Models;
+@model Factory.Models.Machine;
 @{
   Layout = "_Layout";
 }
-
-
-
+@await Html.PartialAsync("_MachineList", new List<Factory.Models.Machine>())
