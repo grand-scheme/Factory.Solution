@@ -2,20 +2,27 @@
   Layout = "_Layout";
 }
 
-@* Engineers.Create *@
-@using Factory.Models;
 @model Factory.Models.Engineer
 
 @using (Html.BeginForm())
 {
-  @Html.Label("Employee Name")
-  @Html.TextBoxFor(model => model.EngineerName)
-  @Html.Label("Employee Title")
-  @Html.TextBoxFor(model => model.EngineerDescription)
-  @Html.Label("Hire Date:")
-  @Html.TextBoxFor(model => model.EngineerHireDate, new {@type = "date"})
-  @Html.Label("Next Certification Date:")
-  @Html.TextBoxFor(model => model.EngineerNextCertificationDate, new {@type = "date"})
-
-  <input type="submit" value="Save" class="btn" />
+  <p>
+    @Html.LabelFor(model => model.EngineerName)
+    @Html.TextBoxFor(model => model.EngineerName)
+  </p>
+  <p>
+    @Html.LabelFor(model => model.EngineerDescription)
+    @Html.TextBoxFor(model => model.EngineerDescription)
+  </p>
+  <p>
+    @Html.LabelFor(model => model.EngineerHireDate)
+    @Html.TextBoxFor(model => model.EngineerHireDate, new {@type = "date"})
+  </p>
+  <p>
+    @Html.LabelFor(model => model.EngineerNextCertificationDate)
+    @Html.TextBoxFor(model => model.EngineerNextCertificationDate, new {@type = "date"})
+  </p>
+  <p>
+    <input type="submit" value="Save New Engineer" class="btn" />
+  </p>
 }

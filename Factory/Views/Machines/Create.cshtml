@@ -2,25 +2,27 @@
   Layout = "_Layout";
 }
 
-@* Machines.Create *@
-@Html.ActionLink("E", "Index", "Machines")
-
-
-
-
-@using Factory.Models;
 @model Factory.Models.Machine
 
 @using (Html.BeginForm())
 {
-  
-  @Html.Label("NAME:")
-  @Html.TextBoxFor(model => model.MachineName)
-  @Html.Label("DESCRIPTION:")
-  @Html.TextBoxFor(model => model.MachineDescription)
-  @Html.Label("INSTALL DATE:")
-  @Html.TextBoxFor(model => model.MachineInstallDate, new {@type = "date"})
-  @Html.Label("NEXT INSPECTION DATE:")
-  @Html.TextBoxFor(model => model.MachineNextInspectionDate, new {@type = "date"})
-  <input type="submit" value="Save" class="btn" /> 
+  <p>
+    @Html.LabelFor(model => model.MachineName)
+    @Html.TextBoxFor(model => model.MachineName)
+  </p>
+  <p>
+    @Html.LabelFor(model => model.MachineDescription)
+    @Html.TextBoxFor(model => model.MachineDescription)
+  </p>
+  <p>
+    @Html.LabelFor(model => model.MachineInstallDate)
+    @Html.TextBoxFor(model => model.MachineInstallDate, new {@type = "date"})
+  </p>
+  <p>
+    @Html.LabelFor(model => model.MachineNextInspectionDate)
+    @Html.TextBoxFor(model => model.MachineNextInspectionDate, new {@type = "date"})
+  </p>
+  <p>
+    <input type="submit" value="Save" class="btn" /> 
+  </p>
 }

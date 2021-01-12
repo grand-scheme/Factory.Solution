@@ -3,14 +3,31 @@
 }
 
 @model Factory.Models.Engineer
+
 @Html.DisplayFor(model => model.EngineerName)
 
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.EngineerId)
-
-  @Html.LabelFor(model => model.EngineerName)
-  @Html.EditorFor(model => model.EngineerName)
-
-  <input type="submit" value="Save" />
+  <p>
+    @Html.HiddenFor(model => model.EngineerId)
+  </p>
+  <p>
+    @Html.LabelFor(model => model.EngineerName)
+    @Html.EditorFor(model => model.EngineerName)
+  </p>
+  <p>
+    @Html.LabelFor(model => model.EngineerDescription)
+    @Html.EditorFor(model => model.EngineerDescription)
+  </p>
+  <p>
+    @Html.LabelFor(model => model.EngineerHireDate)
+    @Html.EditorFor(model => model.EngineerHireDate)
+  </p>
+  <p>
+    @Html.LabelFor(model => model.EngineerNextCertificationDate)
+    @Html.EditorFor(model => model.EngineerNextCertificationDate)
+  </p>
+  <p>
+    <input type="submit" value="Save" />
+  </p>
 }
