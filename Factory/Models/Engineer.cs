@@ -11,6 +11,7 @@ namespace Factory.Models
 		{
 			this.Machines = new HashSet<EngineerMachine>();
 		}
+		
 		public int EngineerId {get;set;}
 		
 		[DisplayName("Engineer Name:")]

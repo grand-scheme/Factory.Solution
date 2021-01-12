@@ -2,25 +2,25 @@
 @model List<Factory.Models.Engineer>;
 @Html.Label("Engineers:")
 <ul>
-@if (@ViewBag.Engineers.Count == 0)
-{
-<li>
-There are no Engineers listed.
-</li>
-<li>
-@Html.ActionLink("Add new Engineer?", "Create", "Engineers")
-</li>
-}
-else
-{
-@foreach (Engineer engineer in (ViewBag.Engineers))
-{
-<li>
-@Html.ActionLink($"{engineer.EngineerName}", "Read", "Engineers", new { id = engineer.EngineerId})
-</li>
-}
-<li class="view-all">
-@Html.ActionLink("View All Engineers", "Index", "Engineers")
-</li>
-}
+  @if (@ViewBag.Engineers.Count == 0)
+  {
+    <li>
+      There are no Engineers listed.
+    </li>
+    <li>
+      @Html.ActionLink("Add new Engineer?", "Create", "Engineers")
+    </li>
+  }
+  else
+  {
+    @foreach (Engineer engineer in (ViewBag.Engineers))
+    {
+      <li>
+        @Html.ActionLink($"{engineer.EngineerName}", "Read", "Engineers", new { id = engineer.EngineerId})
+      </li>
+    }
+    <li class="view-all">
+      @Html.ActionLink("View All Engineers", "Index", "Engineers")
+    </li>
+  }
 </ul>

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-
 namespace Factory.Models
 {
 	public class Machine
@@ -12,6 +11,7 @@ namespace Factory.Models
 		{
 			this.Engineers = new HashSet<EngineerMachine>();
 		}
+		
 		public int MachineId {get;set;}
 		
 		[DisplayName("Machine Name:")]

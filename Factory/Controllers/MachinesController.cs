@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Factory.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Factory.Models;
 
 namespace Factory.Controllers
 {
@@ -21,6 +21,7 @@ namespace Factory.Controllers
 			return View(machineList);
 		}
 
+		[HttpGet]
 		public ActionResult Create()
 		{
 			return View();

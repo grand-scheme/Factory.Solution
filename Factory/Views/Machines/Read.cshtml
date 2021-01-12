@@ -1,4 +1,3 @@
-@* Machines.Read *@
 @{
   Layout = "_Layout";
 }
@@ -8,65 +7,66 @@
   @Html.DisplayFor(model => model.MachineName)
 </h1>
 <div class="navigation view-all">
-@Html.ActionLink("Assign Engineer", "AddEngineer", new { id = Model.MachineId })
-@Html.ActionLink("Edit Machine Info", "Edit", new { id = Model.MachineId })
-@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })
+  @Html.ActionLink("Assign Engineer", "AddEngineer", new { id = Model.MachineId })
+  @Html.ActionLink("Edit Machine Info", "Edit", new { id = Model.MachineId })
+  @Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })
 </div>
-<ul><li>
-  @Html.LabelFor(model => model.MachineDescription)
-  @Html.DisplayFor(model => model.MachineDescription)
-</li>
-<li>
-  @Html.LabelFor(model => model.MachineInstallDate)
-  @Html.DisplayFor(model => model.MachineInstallDate)
-</li>
-<li>
-  @Html.LabelFor(model => model.MachineNextInspectionDate)
-  @Html.DisplayFor(model => model.MachineNextInspectionDate)
-</li>
+<ul>
+  <li>
+    @Html.LabelFor(model => model.MachineDescription)
+    @Html.DisplayFor(model => model.MachineDescription)
+  </li>
+  <li>
+    @Html.LabelFor(model => model.MachineInstallDate)
+    @Html.DisplayFor(model => model.MachineInstallDate)
+  </li>
+  <li>
+    @Html.LabelFor(model => model.MachineNextInspectionDate)
+    @Html.DisplayFor(model => model.MachineNextInspectionDate)
+  </li>
 </ul>
 <p>
-@if (@Model.Engineers.Count == 0)
-{
-  <p>
-    There are no Engineers listed.
-  </p>
-  <p>
-    @Html.ActionLink("Assign Engineer", "AddEngineer", "Machines")
-  </p>
-}
-else
-{
-  <table class="table">
-    <tr>
-      <th>
-        Engineer Name:
-      </th>
-      <th>
-        Title:
-      </th>
-      <th>
-        Delete
-      </th>
-    </tr>
-    @foreach (EngineerMachine engineer in Model.Engineers)
-    {
+  @if (@Model.Engineers.Count == 0)
+  {
+    <p>
+      There are no Engineers listed.
+    </p>
+    <p>
+      @Html.ActionLink("Assign Engineer", "AddEngineer", "Machines")
+    </p>
+  }
+  else
+  {
+    <table class="table">
       <tr>
-        <td>
-          @Html.ActionLink($"{engineer.Engineer.EngineerName}", "Read", "Engineers", new {id = engineer.EngineerId})
-        </td>
-        <td>
-          @engineer.Engineer.EngineerDescription
+        <th>
+          Engineer Name:
+        </th>
+        <th>
+          Title:
+        </th>
+        <th>
+          Delete
+        </th>
+      </tr>
+      @foreach (EngineerMachine engineer in Model.Engineers)
+      {
+        <tr>
+          <td>
+            @Html.ActionLink($"{engineer.Engineer.EngineerName}", "Read", "Engineers", new {id = engineer.EngineerId})
           </td>
           <td>
-          @using (@Html.BeginForm("DeleteEngineer", "Machines"))
-          {
-            @Html.Hidden("joinId", @engineer.EngineerMachineId)
-            <input type="submit" value="Delete Engineer" />
-          }
-        </td>
+            @engineer.Engineer.EngineerDescription
+          </td>
+          <td>
+            @using (@Html.BeginForm("DeleteEngineer", "Machines"))
+            {
+              @Html.Hidden("joinId", @engineer.EngineerMachineId)
+              <input type="submit" value="Delete Engineer" />
+            }
+          </td>
         </tr>
+      }
+    </table>
   }
-  </table>
-}
 </p>

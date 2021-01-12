@@ -1,11 +1,17 @@
-@* Engineers.Index *@
 @{
   Layout = "_Layout";
 }
 @using Factory.Models;
 @model List<Factory.Models.Engineer>;
 @if (@Model.Count == 0)
-{}
+{
+  <p>
+    There are no Engineers listed.
+  </p>
+  <p>
+    @Html.ActionLink("Add new Engineer", "Create")
+  </p>
+}
 else
 {
   <table class="table">
@@ -55,4 +61,4 @@ else
   </table>
 }
 
-@Html.ActionLink("Add New Hire", "Create")
+@Html.ActionLink("Add New Engineer", "Create")

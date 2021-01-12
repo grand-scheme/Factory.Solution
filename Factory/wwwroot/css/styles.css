@@ -6,9 +6,11 @@ body {
 .navigation {
   margin-bottom:2rem;
 }
+
 .navigation a:first-of-type {
   margin:1rem;
 }
+
 .navigation a {
   margin:3rem;
 }

@@ -7,7 +7,7 @@ namespace Factory.Controllers
 {
 	public class HomeController : Controller
 	{
-    private readonly FactoryContext _db;
+		private readonly FactoryContext _db;
 		public HomeController(FactoryContext db)
 		{
 			_db = db;
@@ -16,10 +16,10 @@ namespace Factory.Controllers
 		[HttpGet("/")]
 		public ActionResult Index()
 		{
-      List<Machine> machineList = _db.Machines.ToList();
-      ViewBag.Machines = machineList;
-      List<Engineer> engineerList = _db.Engineers.ToList();
-      ViewBag.Engineers = engineerList;
+			List<Machine> machineList = _db.Machines.ToList();
+			ViewBag.Machines = machineList;
+			List<Engineer> engineerList = _db.Engineers.ToList();
+			ViewBag.Engineers = engineerList;
 			return View();
 		}
 	}

@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Factory.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Factory.Models;
 
 namespace Factory.Controllers
 {
@@ -40,7 +40,7 @@ namespace Factory.Controllers
 			Engineer thisEngineer = _db.Engineers
 			.Include(engineer => engineer.Machines)
 			.ThenInclude(join => join.Machine)
-			.FirstOrDefault(engineer => engineer.EngineerId  == id);
+			.FirstOrDefault(engineer => engineer.EngineerId == id);
 			return View(thisEngineer);
 		}
 
@@ -72,6 +72,7 @@ namespace Factory.Controllers
 			_db.SaveChanges();
 			return RedirectToAction("Index");
 		}
+		
 		public ActionResult AddMachine(int id)
 		{
 			Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
