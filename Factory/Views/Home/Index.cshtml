@@ -2,6 +2,10 @@
   Layout = "_Layout";
 }
 @model Factory.Models.Machine;
-@await Html.PartialAsync("_MachineList", new List<Factory.Models.Machine>())
-<hr>
-@await Html.PartialAsync("_EngineerList", new List<Factory.Models.Engineer>())
+<h1 class="index-header">
+  Welcome, Dr. Sillystringz!
+</h1>
+
+  @await Html.PartialAsync("_MachineList", new List<Factory.Models.Machine>())
+  <hr>
+  @await Html.PartialAsync("_EngineerList", new List<Factory.Models.Engineer>())
