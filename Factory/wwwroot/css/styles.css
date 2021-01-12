@@ -1,10 +1,11 @@
 body {
-  background: #ffffcc;
+  background: #ccc;
   margin: 0rem 1rem;
 }
 
 .navigation {
   margin-bottom:2rem;
+  font-size: 1.75rem;
 }
 
 .navigation a:first-of-type {
@@ -15,8 +16,8 @@ body {
   margin:3rem;
 }
 
-.table tr:nth-child(even) {
-  background-color:lightgrey;
+.table tr:nth-child(odd) {
+  background-color:#cce;
 }
 
 ul {
