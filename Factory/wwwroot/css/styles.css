@@ -20,3 +20,7 @@ body {
 ul {
   list-style-type: none;
 }
+
+.view-all {
+  font-weight: bold;
+}

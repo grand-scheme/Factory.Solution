@@ -1,16 +1,26 @@
 @{
   Layout = "_Layout";
 }
-
 @model Factory.Models.Engineer
 
-@Html.DisplayFor(model => model.EngineerName)
+<h1>
+  @Html.DisplayFor(model => model.EngineerName)
+</h1>
+
+<h2>
+  @Html.DisplayFor(model => model.EngineerDescription)
+</h2>
 
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.EngineerId )
-  @Html.Label("+ Machine")
-  @Html.DropDownList("MachineId")
-
-  <input type="submit" value="Save" class="btn" />
+  <p>
+    @Html.Label("Machine Name:")
+  </p>
+  <p>
+    @Html.DropDownList("MachineId")
+  </p>
+  <p>
+    <input type="submit" value="Save" class="btn" />
+  </p>
 }
