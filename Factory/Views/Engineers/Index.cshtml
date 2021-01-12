@@ -8,27 +8,47 @@
 {}
 else
 {
-<table>
+<table class="table">
   <tr>
-    <th>ID#</th>
-    <th>Name</th>
-    <th>Edit</th>
-    <th>Delete</th>
-  </tr>
+      <th>
+        Engineer Name:
+      </th>
+      <th>
+        Title:
+      </th>
+      <th>
+        Hire Date:
+      </th>
+      <th>
+        Next Certification Date:
+      </th>
+      <th>
+        Edit
+      </th>
+      <th>
+        Delete
+      </th>
+    </tr>
     @foreach (Engineer engineer in Model)
     {
       <tr>
         <td>
-          @engineer.EngineerId
-        </td>
-        <td>
           @Html.ActionLink($"{engineer.EngineerName}", "Read", new { id = engineer.EngineerId})
         </td>
         <td>
-          @Html.ActionLink($"Edit Details", "Edit", new { id = engineer.EngineerId})
+          @engineer.EngineerDescription
         </td>
         <td>
-          @Html.ActionLink($"Remove Engineer", "Delete", new { id = engineer.EngineerId})
+          @engineer.EngineerHireDate.ToString("yyyy-MM-dd")
+        </td>
+        <td>
+          @engineer.EngineerNextCertificationDate.ToString("yyyy-MM-dd")
+        </td>
+        <td>
+          @Html.ActionLink($"Edit", "Edit", new { id = engineer.EngineerId})
+        </td>
+        <td>
+          @Html.ActionLink($"Delete", "Delete", new { id = engineer.EngineerId})
         </td>
       </tr>
     }

@@ -8,27 +8,47 @@
 {}
 else
   {
-  <table>
+  <table class="table">
     <tr>
-      <th>ID #</th>
-      <th>Name</th>
-      <th>Edit</th>
-      <th>Delete</th>
+      <th>
+        Machine Name:
+      </th>
+      <th>
+        Function:
+      </th>
+      <th>
+        Install Date:
+      </th>
+      <th>
+        Next Inspection Date:
+      </th>
+      <th>
+        Edit
+      </th>
+      <th>
+        Delete
+      </th>
     </tr>
     @foreach (Machine machine in Model)
     {
       <tr>
         <td>
-          @machine.MachineId
-        </td>
-        <td>
           @Html.ActionLink($"{machine.MachineName}", "Read", new { id = machine.MachineId})
         </td>
         <td>
-          @Html.ActionLink($"Edit Details", "Edit", new { id = machine.MachineId})
+          @machine.MachineDescription
         </td>
         <td>
-          @Html.ActionLink($"Remove Machine", "Delete", new { id = machine.MachineId})
+          @machine.MachineInstallDate.ToString("yyyy-MM-dd")
+        </td>
+        <td>
+          @machine.MachineNextInspectionDate.ToString("yyyy-MM-dd")
+        </td>
+        <td>
+          @Html.ActionLink($"Edit", "Edit", new { id = machine.MachineId})
+        </td>
+        <td>
+          @Html.ActionLink($"Delete", "Delete", new { id = machine.MachineId})
         </td>
       </tr>
     }
