@@ -3,14 +3,33 @@
 }
 
 @model Factory.Models.Machine
-@Html.DisplayFor(model => model.MachineName)
+
+<h1>
+  @Html.DisplayFor(model => model.MachineName)
+</h1>
 
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.MachineId)
-
-  @Html.LabelFor(model => model.MachineName)
-  @Html.EditorFor(model => model.MachineName)
-
-  <input type="submit" value="Save" />
+  <p>
+    @Html.HiddenFor(model => model.MachineId)
+  </p>
+  <p>
+    @Html.LabelFor(model => model.MachineName)
+    @Html.EditorFor(model => model.MachineName)
+  </p>
+  <p>
+    @Html.LabelFor(model => model.MachineDescription)
+    @Html.EditorFor(model => model.MachineDescription)
+  </p>
+  <p>
+    @Html.LabelFor(model => model.MachineInstallDate)
+    @Html.EditorFor(model => model.MachineInstallDate)
+  </p>
+  <p>
+    @Html.LabelFor(model => model.MachineNextInspectionDate)
+    @Html.EditorFor(model => model.MachineNextInspectionDate)
+  </p>
+  <p>
+    <input type="submit" value="Save" />
+  </p>
 }

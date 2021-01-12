@@ -3,19 +3,17 @@
 }
 
 @model Factory.Models.Engineer
-<p>
+<h1>
 @Html.DisplayFor(model => model.EngineerName)
-</p><p>
+</h1>
+<h2>
 @Html.DisplayFor(model => model.EngineerDescription)
-</p><p>
-@Html.DisplayFor(model => model.EngineerHireDate)
-</p><p>
-@Html.DisplayFor(model => model.EngineerNextCertificationDate)
-</p>
+</h2>
 
-<p>
-  @using (Html.BeginForm())
+@using (Html.BeginForm())
 {
+  <p>
+    Are you sure you want to delete @Html.DisplayFor(model => model.EngineerName) ?
+  </p>
   <input type="submit" value="Delete" />
 }
-</p>

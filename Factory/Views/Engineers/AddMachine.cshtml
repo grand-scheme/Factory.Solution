@@ -2,21 +2,19 @@
   Layout = "_Layout";
 }
 @model Factory.Models.Engineer
-
 <h1>
   @Html.DisplayFor(model => model.EngineerName)
 </h1>
-
 <h2>
   @Html.DisplayFor(model => model.EngineerDescription)
 </h2>
-
+<hr>
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.EngineerId )
-  <p>
+  <h3>
     @Html.Label("Machine Name:")
-  </p>
+  </h3>
   <p>
     @Html.DropDownList("MachineId")
   </p>

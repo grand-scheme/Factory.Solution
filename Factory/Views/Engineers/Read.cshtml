@@ -7,22 +7,24 @@
 <h1>
   @Html.DisplayFor(model => model.EngineerName)
 </h1>
-<p>
-  @Html.DisplayFor(model => model.EngineerDescription)
-</p>
-<p>
-  @Html.DisplayFor(model => model.EngineerHireDate)
-</p>
-<p>
-  @Html.DisplayFor(model => model.EngineerNextCertificationDate)
-</p>
-<p>
-
+<div class="navigation view-all">
+@Html.ActionLink("Assign Machine", "AddMachine", new { id = Model.EngineerId })
 @Html.ActionLink("Edit Engineer Info", "Edit", new { id = Model.EngineerId })
-</p>
-<p>
 @Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })
-</p>
+</div>
+<ul><li>
+  @Html.LabelFor(model => model.EngineerDescription)
+  @Html.DisplayFor(model => model.EngineerDescription)
+</li>
+<li>
+  @Html.LabelFor(model => model.EngineerHireDate)
+  @Html.DisplayFor(model => model.EngineerHireDate)
+</li>
+<li>
+  @Html.LabelFor(model => model.EngineerNextCertificationDate)
+  @Html.DisplayFor(model => model.EngineerNextCertificationDate)
+</li>
+</ul>
 <p>
 @if (@Model.Machines.Count == 0)
 {
@@ -65,18 +67,6 @@ else
       </td>
     </tr>
   }
-  </table>
-  <table class="table">
-  <tr class="table-end">
-    <td>
-      @Html.ActionLink("Assign Machine", "AddMachine", new { id = Model.EngineerId })
-    </td>
-    <td>
-
-    </td>
-    <td>
-    </td>
-  </tr>
   </table>
 }
 </p>

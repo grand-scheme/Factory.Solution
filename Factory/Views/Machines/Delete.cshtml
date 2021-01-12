@@ -3,9 +3,17 @@
 }
 
 @model Factory.Models.Machine
-@Html.DisplayFor(model => model.MachineName)
+<h1>
+  @Html.DisplayFor(model => model.MachineName)
+</h1>
+<h2>
+  @Html.DisplayFor(model => model.MachineDescription)
+</h2>
 
 @using (Html.BeginForm())
 {
-  <input type="submit" value="Delete" />
+  <p>
+    Are you sure you want to delete @Html.DisplayFor(model => model.MachineName) ?
+  </p>
+  <input type="submit" value="Yes, Delete" />
 }

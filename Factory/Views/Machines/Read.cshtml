@@ -2,44 +2,71 @@
 @{
   Layout = "_Layout";
 }
-
 @using Factory.Models;
 @model Factory.Models.Machine;
-
-<h1>@Html.DisplayFor(model => model.MachineName)</h1>
-<h2>@Html.DisplayFor(model => model.MachineInstallDate, new {@type = "date"})</h2>
-<h2>@Html.DisplayFor(model => model.MachineNextInspectionDate, new {@type = "date"})</h2>
-
+<h1>
+  @Html.DisplayFor(model => model.MachineName)
+</h1>
+<div class="navigation view-all">
+@Html.ActionLink("Assign Engineer", "AddEngineer", new { id = Model.MachineId })
+@Html.ActionLink("Edit Machine Info", "Edit", new { id = Model.MachineId })
+@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })
+</div>
+<ul><li>
+  @Html.LabelFor(model => model.MachineDescription)
+  @Html.DisplayFor(model => model.MachineDescription)
+</li>
+<li>
+  @Html.LabelFor(model => model.MachineInstallDate)
+  @Html.DisplayFor(model => model.MachineInstallDate)
+</li>
+<li>
+  @Html.LabelFor(model => model.MachineNextInspectionDate)
+  @Html.DisplayFor(model => model.MachineNextInspectionDate)
+</li>
+</ul>
+<p>
 @if (@Model.Engineers.Count == 0)
 {
+  <p>
+    There are no Engineers listed.
+  </p>
+  <p>
+    @Html.ActionLink("Assign Engineer", "AddEngineer", "Machines")
+  </p>
 }
 else
 {
-  <table>
+  <table class="table">
     <tr>
-      <th>Header 1</th>
-      <th>Header 2</th>
-      <th>Header 3</th>
+      <th>
+        Engineer Name:
+      </th>
+      <th>
+        Title:
+      </th>
+      <th>
+        Delete
+      </th>
     </tr>
     @foreach (EngineerMachine engineer in Model.Engineers)
     {
       <tr>
         <td>
-          @engineer.Engineer.EngineerName
+          @Html.ActionLink($"{engineer.Engineer.EngineerName}", "Read", "Engineers", new {id = engineer.EngineerId})
         </td>
         <td>
+          @engineer.Engineer.EngineerDescription
+          </td>
+          <td>
           @using (@Html.BeginForm("DeleteEngineer", "Machines"))
           {
             @Html.Hidden("joinId", @engineer.EngineerMachineId)
             <input type="submit" value="Delete Engineer" />
           }
         </td>
-        <td></td>
         </tr>
   }
   </table>
 }
-
-@Html.ActionLink("+ Engineer", "AddEngineer", new { id = Model.MachineId })
-@Html.ActionLink("~ Machine", "Edit", new { id = Model.MachineId })
-@Html.ActionLink("- Machine", "Delete", new { id = Model.MachineId })
+</p>
