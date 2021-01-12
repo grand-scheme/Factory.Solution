@@ -1,16 +1,26 @@
 @using Factory.Models;
 @model List<Factory.Models.Machine>;
-@if (@ViewBag.Machines.Count == 0)
-{<div>hello</div>}
-else
-{
-  @Html.Label("Machines:")
-  <ul>
+@Html.Label("Machines:")
+<ul>
+  @if (@ViewBag.Machines.Count == 0)
+  {
+    <li>
+      There are no Machines listed.
+    </li>
+    <li>
+      @Html.ActionLink("Add new Machine?", "Create", "Machines")
+    </li>
+  }
+  else
+  {
     @foreach (Machine machine in (ViewBag.Machines))
     {
       <li>
         @Html.ActionLink($"{machine.MachineName}", "Read", "Machines", new { id = machine.MachineId})
       </li>
     }
-  </ul>
-}
+    <li class="view-all">
+      @Html.ActionLink("View All Machines", "Index", "Machines")
+    </li>
+  }
+</ul>
