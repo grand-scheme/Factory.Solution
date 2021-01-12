@@ -13,6 +13,7 @@ namespace Factory.Models
 		public int EngineerId {get;set;}
 		
 		public string EngineerName {get;set;}
+		public string EngineerDescription {get;set;}
 		
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyy-MM-dd}")]
 		public DateTime EngineerHireDate {get;set;}

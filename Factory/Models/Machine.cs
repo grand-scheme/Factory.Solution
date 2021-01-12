@@ -14,6 +14,7 @@ namespace Factory.Models
 		public int MachineId {get;set;}
 		
 		public string MachineName {get;set;}
+		public string MachineDescription {get;set;}
 
 		// [DataType(DataType.Date)]
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString ="{0:yyyy-MM-dd}")]
