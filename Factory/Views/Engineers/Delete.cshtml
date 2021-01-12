@@ -3,9 +3,19 @@
 }
 
 @model Factory.Models.Engineer
+<p>
 @Html.DisplayFor(model => model.EngineerName)
+</p><p>
+@Html.DisplayFor(model => model.EngineerDescription)
+</p><p>
+@Html.DisplayFor(model => model.EngineerHireDate)
+</p><p>
+@Html.DisplayFor(model => model.EngineerNextCertificationDate)
+</p>
 
-@using (Html.BeginForm())
+<p>
+  @using (Html.BeginForm())
 {
   <input type="submit" value="Delete" />
 }
+</p>
