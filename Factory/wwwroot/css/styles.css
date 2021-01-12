@@ -1,3 +1,10 @@
 body {
   background: #ffffcc;
 }
+
+.navigation a:first-of-type {
+  margin:1em;
+}
+.navigation a {
+  margin:7em;
+}
