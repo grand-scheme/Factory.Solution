@@ -15,13 +15,16 @@ namespace Factory.Models
 		
 		[DisplayName("Engineer Name:")]
 		public string EngineerName {get;set;}
+		
 		[DisplayName("Engineer Title:")]
 		public string EngineerDescription {get;set;}
 		
+		[DataType(DataType.Date)]
 		[DisplayName("Engineer Hire Date:")]
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyy-MM-dd}")]
 		public DateTime EngineerHireDate {get;set;}
 
+		[DataType(DataType.Date)]
 		[DisplayName("Engineer Next Certification Date:")]
 		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyy-MM-dd}")]
 		public DateTime EngineerNextCertificationDate {get;set;}
